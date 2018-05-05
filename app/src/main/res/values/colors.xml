@@ -3,4 +3,8 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="accent_material_light_1">#feaa0c</color>
+    <color name="yellowBurn">#feaa0c</color>
+    <color name="yellowLight">#ffcb69</color>
+    <color name="yellowBurnMore">#c78200</color>
 </resources>

@@ -1,3 +1,23 @@
 <resources>
-    <string name="app_name">AppCalculadora</string>
+    <string name="app_name">Calculadora</string>
+    <string name="num_0">0</string>
+    <string name="num_1">1</string>
+    <string name="num_2">2</string>
+    <string name="num_3">3</string>
+    <string name="num_4">4</string>
+    <string name="num_5">5</string>
+    <string name="num_6">6</string>
+    <string name="num_7">7</string>
+    <string name="num_8">8</string>
+    <string name="num_9">9</string>
+    <string name="clear">CE</string>
+    <string name="clearAll">C</string>
+    <string name="backspace">⌫</string>
+    <string name="maiorMenor">±</string>
+    <string name="Igual">=</string>
+    <string name="virgula">,</string>
+    <string name="op_Soma">+</string>
+    <string name="op_Subtracao">-</string>
+    <string name="op_Multiplicacao">X</string>
+    <string name="op_Divisao">÷</string>
 </resources>
