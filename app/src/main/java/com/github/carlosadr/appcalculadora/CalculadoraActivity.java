@@ -10,9 +10,8 @@ public class CalculadoraActivity extends AppCompatActivity {
 
     private TextView txt_Numeros,txt_Valores;
     private  String Numero;
-    private boolean soma,subtracao,multplicacao,divisao;
 
-    private double numero_A = 0,numero_B = 0,resultado;
+    private double numero1,numero2;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
@@ -24,7 +23,6 @@ public class CalculadoraActivity extends AppCompatActivity {
     private void startObjects() {
         txt_Numeros = findViewById(R.id.txt_Numeros);
         txt_Valores = findViewById(R.id.txt_Valores);
-
     }
 
     public void Numericos(View view){
@@ -38,29 +36,23 @@ public class CalculadoraActivity extends AppCompatActivity {
     public void Operacoes(View view){
         Button btn = (Button)view;
 
-        switch (btn.getText().toString()){
-            case "+":
-                soma = !soma;
-                Operacoes(0);
-                break;
-            case "-":
-                subtracao = !subtracao;
-                Operacoes(1);
-                break;
-            case "X":
-                multplicacao = !multplicacao;
-                Operacoes(2);
-                break;
-            case "÷":
-                divisao = !divisao;
-                Operacoes(3);
-                break;
-            case "=":
-                break;
-            case "±":
-                Operacoes(4);
-                break;
+        numero1 = Double.parseDouble(txt_Numeros.getText().toString());
+
+        if (txt_Valores.getText().equals("")){
+            if (btn.getText().toString().equals("+") || btn.getText().toString().equals("-")){
+                numero2 = 0;
+            }else {
+                numero2 = 1;
+            }
         }
+        else {
+            numero2 = Double.parseDouble(txt_Valores.getText().toString());
+        }
+
+        Operadores operadores = new Operadores(numero1,numero2, btn.getText().toString());
+
+        txt_Valores.setText(operadores.setResultado());
+        txt_Numeros.setText("");
     }
 
     public void Especiais(View view){
@@ -82,7 +74,7 @@ public class CalculadoraActivity extends AppCompatActivity {
         }
     }
 
-    private void Operacoes(int operacao) {
+    /*private void Operacoes(int operacao) {
 
         if (!txt_Valores.toString().equals("") && (soma || subtracao || multplicacao || divisao)) {
             numero_A = Double.parseDouble(txt_Valores.getText().toString());
@@ -125,5 +117,5 @@ public class CalculadoraActivity extends AppCompatActivity {
             txt_Valores.setText(String.valueOf(resultado));
             txt_Numeros.setText("");
         }
-    }
+    }*/
 }

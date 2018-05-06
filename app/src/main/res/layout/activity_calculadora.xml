@@ -270,7 +270,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:onClick="Especiais"
+                android:onClick="Operacoes"
                 android:text="@string/maiorMenor"
                 android:textColor="@android:color/background_light"
                 android:textSize="24sp" />
