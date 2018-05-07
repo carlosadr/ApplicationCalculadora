@@ -11,7 +11,7 @@ public class CalculadoraActivity extends AppCompatActivity {
     private TextView txt_Numeros,txt_Valores;
     private  String Numero;
 
-    private double numero1,numero2;
+    private Operadores op = new Operadores( 0, 0, "");
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
@@ -35,32 +35,42 @@ public class CalculadoraActivity extends AppCompatActivity {
 
     public void Operacoes(View view){
         Button btn = (Button)view;
+        if (!txt_Numeros.getText().equals("")){
+            double numero1 = Double.parseDouble(txt_Numeros.getText().toString());
 
-        numero1 = Double.parseDouble(txt_Numeros.getText().toString());
+            double numero2;
+            if (txt_Valores.getText().equals("")) {
+                if (btn.getText().toString().equals("+") || btn.getText().toString().equals("-")) {
+                    numero2 = 0;
+                } else {
+                    numero2 = 1;
+                }
+            } else {
+                numero2 = Double.parseDouble(txt_Valores.getText().toString());
+            }
 
-        if (txt_Valores.getText().equals("")){
-            if (btn.getText().toString().equals("+") || btn.getText().toString().equals("-")){
-                numero2 = 0;
+            op.setValores(numero1, numero2, btn.getText().toString());
+
+            if(btn.getText().toString().equals("=") || btn.getText().toString().equals("±")){
+                txt_Valores.setText("");
+                txt_Numeros.setText(op.setResultado());
             }else {
-                numero2 = 1;
+                txt_Valores.setText(op.setResultado());
+                txt_Numeros.setText("");
             }
         }
-        else {
-            numero2 = Double.parseDouble(txt_Valores.getText().toString());
-        }
-
-        Operadores operadores = new Operadores(numero1,numero2, btn.getText().toString());
-
-        txt_Valores.setText(operadores.setResultado());
-        txt_Numeros.setText("");
     }
 
     public void Especiais(View view){
         Button btn = (Button)view;
         switch (btn.getText().toString()){
-            case "C": //TODO: Fazer um Botao para apagar tudo.;
+            case "C":
+                txt_Valores.setText("");
+                txt_Numeros.setText("");
+                op.setValores(0,0,"");
                 break;
-            case "CE": //TODO: Fazer um Botao que apague somente oque esta sendo digitado.;
+            case "CE":
+                txt_Numeros.setText("");
                 break;
             case "⌫": //TODO: Fazerum Botao que apague somente um numero por vez.;
                 break;
@@ -73,49 +83,4 @@ public class CalculadoraActivity extends AppCompatActivity {
                 break;
         }
     }
-
-    /*private void Operacoes(int operacao) {
-
-        if (!txt_Valores.toString().equals("") && (soma || subtracao || multplicacao || divisao)) {
-            numero_A = Double.parseDouble(txt_Valores.getText().toString());
-            numero_B = Double.parseDouble(txt_Numeros.getText().toString());
-        } else if (txt_Valores.toString().equals("") && (soma || subtracao)) {
-            numero_A = 0;
-            numero_B = Double.parseDouble(txt_Numeros.getText().toString());
-        } else if (txt_Valores.toString().equals("") && (multplicacao || divisao)) {
-            numero_A = 1;
-            numero_B = Double.parseDouble(txt_Numeros.getText().toString());
-        }
-
-        switch (operacao) {
-            case 0:
-                resultado = numero_A + numero_B;
-                soma = !soma;
-                break;
-            case 1:
-                resultado = numero_A - numero_B;
-                subtracao = !subtracao;
-                break;
-            case 2:
-                resultado = numero_A * numero_B;
-                multplicacao = !multplicacao;
-                break;
-            case 3:
-                resultado = numero_A / numero_B;
-                divisao = !divisao;
-                break;
-            case 4:
-                resultado = numero_B * -1;
-                txt_Numeros.setText(String.valueOf(resultado));
-                break;
-        }
-
-        if (operacao >= 0) {
-            txt_Valores.setText(String.valueOf(resultado));
-            txt_Numeros.setText("");
-        } else {
-            txt_Valores.setText(String.valueOf(resultado));
-            txt_Numeros.setText("");
-        }
-    }*/
 }
