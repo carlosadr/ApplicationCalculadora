@@ -6,6 +6,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 public class CalculadoraActivity extends AppCompatActivity {
 
     private TextView txt_Numeros,txt_Valores;
@@ -70,10 +72,18 @@ public class CalculadoraActivity extends AppCompatActivity {
                 op.setValores(0,0,"");
                 break;
             case "CE":
-                txt_Numeros.setText("");
+                txt_Numeros.setText(null);
                 break;
             case "⌫": //TODO: Fazerum Botao que apague somente um numero por vez.;
-                break;
+                String num = txt_Numeros.getText().toString();
+                StringBuilder numStrings = new StringBuilder(num);
+                if (num.length() == 0){
+                    break;
+                }else{
+                    num = String.valueOf(numStrings.deleteCharAt(num.length() -1));
+                    txt_Numeros.setText(num);
+                    break;
+                }
             case ",":
                 if (Numero.contains(".")){
                     return;
