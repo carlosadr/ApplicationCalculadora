@@ -6,8 +6,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import java.util.ArrayList;
-
 public class CalculadoraActivity extends AppCompatActivity {
 
     private TextView txt_Numeros,txt_Valores;
@@ -42,13 +40,18 @@ public class CalculadoraActivity extends AppCompatActivity {
 
             double numero2;
             if (txt_Valores.getText().equals("")) {
-                if (btn.getText().toString().equals("+") || btn.getText().toString().equals("-")) {
-                    numero2 = 0;
-                } else if( btn.getText().toString().equals("X") ) {
-                    numero2 = 1;//TODO Fazer a Divizão receber numero 1 em numero 2;
-                }else {
-                    numero2 = numero1;
-                    numero1 = 1;
+                switch (btn.getText().toString()) {
+                    case "+":
+                    case "-":
+                        numero2 = 0;
+                        break;
+                    case "X":
+                        numero2 = 1;
+                        break;
+                    default:
+                        numero2 = numero1;
+                        numero1 = 1;
+                        break;
                 }
             } else {
                 numero2 = Double.parseDouble(txt_Valores.getText().toString());
@@ -77,7 +80,7 @@ public class CalculadoraActivity extends AppCompatActivity {
             case "CE":
                 txt_Numeros.setText(null);
                 break;
-            case "⌫": //TODO: Fazerum Botao que apague somente um numero por vez.;
+            case "⌫":
                 String num = txt_Numeros.getText().toString();
                 StringBuilder numStrings = new StringBuilder(num);
                 if (num.length() == 0){
