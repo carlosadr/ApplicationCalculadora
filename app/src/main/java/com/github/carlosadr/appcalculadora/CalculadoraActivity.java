@@ -44,8 +44,11 @@ public class CalculadoraActivity extends AppCompatActivity {
             if (txt_Valores.getText().equals("")) {
                 if (btn.getText().toString().equals("+") || btn.getText().toString().equals("-")) {
                     numero2 = 0;
-                } else {
-                    numero2 = 1;
+                } else if( btn.getText().toString().equals("X") ) {
+                    numero2 = 1;//TODO Fazer a Divizão receber numero 1 em numero 2;
+                }else {
+                    numero2 = numero1;
+                    numero1 = 1;
                 }
             } else {
                 numero2 = Double.parseDouble(txt_Valores.getText().toString());
