@@ -71,13 +71,16 @@ public class CalculadoraActivity extends AppCompatActivity {
 
     public void Especiais(View view){
         Button btn = (Button)view;
+
         switch (btn.getText().toString()){
             case "C":
-                txt_Valores.setText("");
-                txt_Numeros.setText("");
+                txt_Valores.setText(null);
+                txt_Numeros.setText(null);
                 op.setValores(0,0,"");
                 break;
             case "CE":
+                if (txt_Valores.getText().equals(""))
+                    op.setValores(0, 0, "");
                 txt_Numeros.setText(null);
                 break;
             case "⌫":
