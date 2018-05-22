@@ -5,6 +5,7 @@
     <color name="colorAccent">#FF4081</color>
     <color name="accent_material_light_1">#feaa0c</color>
     <color name="yellowBurn">#feaa0c</color>
-    <color name="yellowLight">#ffcb69</color>
+    <color name="yellowLight">#323232</color>
     <color name="yellowBurnMore">#c78200</color>
+    <color name="background_material_dark">#ffd702</color>
 </resources>
