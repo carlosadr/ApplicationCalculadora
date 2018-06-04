@@ -6,37 +6,21 @@
     android:orientation="vertical"
     tools:context=".CalculadoraActivity">
 
-    <LinearLayout
-        android:id="@+id/lin_Textos"
+    <TextView
+        android:id="@+id/txt_Valores"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <TextView
-            android:id="@+id/txt_Valores"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="15"
-            android:singleLine="true"
-            android:textAlignment="textEnd"
-            android:textColor="@color/yellowLight"
-            android:textSize="30sp" />
-
-        <TextView
-            android:id="@+id/txt_Operador"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:singleLine="true"
-            android:textAlignment="center"
-            android:textColor="@color/yellowLight"
-            android:textSize="30sp" />
-    </LinearLayout>
+        android:background="@android:color/background_light"
+        android:singleLine="true"
+        android:textAlignment="textEnd"
+        android:textColor="@color/yellowBurn"
+        android:textSize="36sp" />
 
     <TextView
         android:id="@+id/txt_Numeros"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@android:color/background_light"
         android:baselineAligned="false"
         android:singleLine="true"
         android:textAlignment="textEnd"

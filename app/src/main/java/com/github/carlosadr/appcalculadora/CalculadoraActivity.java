@@ -36,9 +36,9 @@ public class CalculadoraActivity extends AppCompatActivity {
     public void Operacoes(View view){
         Button btn = (Button)view;
         if (!txt_Numeros.getText().equals("")){
-            double numero1 = Double.parseDouble(txt_Numeros.getText().toString());
+            float numero1 = Float.parseFloat(txt_Numeros.getText().toString());
 
-            double numero2;
+            float numero2;
             if (txt_Valores.getText().equals("")) {
                 switch (btn.getText().toString()) {
                     case "+":
@@ -54,7 +54,7 @@ public class CalculadoraActivity extends AppCompatActivity {
                         break;
                 }
             } else {
-                numero2 = Double.parseDouble(txt_Valores.getText().toString());
+                numero2 = Float.parseFloat(txt_Valores.getText().toString());
             }
 
             op.setValores(numero1, numero2, btn.getText().toString());
@@ -79,8 +79,12 @@ public class CalculadoraActivity extends AppCompatActivity {
                 op.setValores(0,0,"");
                 break;
             case "CE":
-                if (txt_Valores.getText().equals(""))
+                if (txt_Valores.getText().equals("")) {
                     op.setValores(0, 0, "");
+                    op.setResultado(null);
+                    op.setOperadorPedente(null);
+                    txt_Valores.setText(null);
+                }
                 txt_Numeros.setText(null);
                 break;
             case "⌫":

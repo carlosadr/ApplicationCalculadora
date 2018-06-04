@@ -1,22 +1,22 @@
 package com.github.carlosadr.appcalculadora;
 
 public class Operadores {
-    private double numero1,numero2;
+    private float numero1,numero2;
     private String operador, operadorPedente,resultado;
 
-    Operadores(double numero1, double numero2, String operador){
+    Operadores(float numero1, float numero2, String operador){
         this.numero1 = numero1;
         this.numero2 = numero2;
         this.operador = operador;
     }
 
-    public void setValores(double numero1, double numero2, String operador){
+    public void setValores(float numero1, float numero2, String operador){
         this.numero1 = numero1;
         this.numero2 = numero2;
         this.operador = operador;
     }
 
-    private void setOperadorPedente(String operador) {
+    public void setOperadorPedente(String operador) {
         this.operadorPedente = operador;
     }
 
@@ -24,8 +24,12 @@ public class Operadores {
         return operadorPedente;
     }
 
+    public void setResultado(String resultado) {
+        this.resultado = resultado;
+    }
+
     public String setResultado() {
-        if (getOperadorPedente() == null || getOperadorPedente().equals("±")){
+        if (getOperadorPedente() == null || getOperadorPedente().equals("±") || getOperadorPedente().equals("=")){
             return getResultadoPedente(operador);
         }else {
             return getResultadoPedente(getOperadorPedente());
