@@ -1,16 +1,16 @@
 package com.github.carlosadr.appcalculadora;
 
 public class Operadores {
-    private float numero1,numero2;
+    private double numero1,numero2;
     private String operador, operadorPedente,resultado;
 
-    Operadores(float numero1, float numero2, String operador){
+    Operadores(double numero1, double numero2, String operador){
         this.numero1 = numero1;
         this.numero2 = numero2;
         this.operador = operador;
     }
 
-    public void setValores(float numero1, float numero2, String operador){
+    public void setValores(double numero1, double numero2, String operador){
         this.numero1 = numero1;
         this.numero2 = numero2;
         this.operador = operador;
@@ -51,7 +51,7 @@ public class Operadores {
                 resultado = String.valueOf(numero2 / numero1);
                 break;
             case "±":
-                resultado = String.valueOf(numero1 * -1);
+                resultado = String.valueOf(numero2 * -1);
                 break;
         }
         setOperadorPedente(operador);
